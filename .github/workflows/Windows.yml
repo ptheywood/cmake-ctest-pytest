@@ -53,6 +53,11 @@ jobs:
           python -m venv duplicate_venv
           ls duplicate_venv
 
+      - name: Hardcoded
+        run: |
+          C:/hostedtoolcache/windows/Python/3.9.1/x64/python3.exe -m venv hardcoded_py3
+          
+
       # - name: Configure CMake
       #   id: configure
       #   run: cmake . -B ${{ env.build_dir }} -G "${{ matrix.visual_studio }}" -A x64
