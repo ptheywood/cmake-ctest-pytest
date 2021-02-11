@@ -27,6 +27,7 @@ jobs:
           python -m pip --version
           python -m venv -h
           which python
+          ls -al C:/hostedtoolcache/windows/Python/3.9.1/x64/
 
       - name: Create a venv in the current dir
         shell: bash
@@ -54,6 +55,9 @@ jobs:
           python -m venv duplicate_venv
           ls duplicate_venv
 
+      - name: Hardcoded
+        run: |
+          C:/hostedtoolcache/windows/Python/3.9.1/x64/python.exe -m venv hardcoded_py3
       - name: Hardcoded
         run: |
           C:/hostedtoolcache/windows/Python/3.9.1/x64/python3.exe -m venv hardcoded_py3
