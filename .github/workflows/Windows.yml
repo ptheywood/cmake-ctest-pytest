@@ -42,9 +42,12 @@ jobs:
 
 
       - name: rm the symlink
+        shell: bash
+        run: find /c/hostedtoolcache/windows/Python/ -name "python3.exe" -delete
+          
+      - name: absolute path to python3 --version.
         run: |
-          rm C:/hostedtoolcache/windows/Python/3.9.1/x64/python3.exe
-
+          ls C:/hostedtoolcache/windows/Python/3.9.1/x64/
       # - name: create venv with python
       #   run: |
       #     python -m venv py-env
