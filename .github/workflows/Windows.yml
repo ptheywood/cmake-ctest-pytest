@@ -1,0 +1,55 @@
+name: Windows
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      # explicit include-based build matrix, of known valid options
+      matrix:
+        include:
+          - os: windows-2019
+            visual_studio: "Visual Studio 16 2019"
+    env:
+      build_dir: "build"
+      config: "Release"
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Random testing.
+        shell: bash
+        run: |
+          python -m pip --version
+          python -m venv -h
+
+      - name: Create a venv in the current dir
+        shell: bash
+        run: |
+          python -m venv test_venv
+
+      - name: Create a venv in a child dir that does exist.
+        shell: bash
+        run: |
+          mkdir -p subdirectory
+          python -m venv subdirectory/test_venv
+
+      - name: Create a venv in a child dir that does not exist.
+        shell: bash
+        run: |
+          python -m venv missing/test_venv
+
+
+      # - name: Configure CMake
+      #   id: configure
+      #   run: cmake . -B ${{ env.build_dir }} -G "${{ matrix.visual_studio }}" -A x64
+      #   shell: bash
+
+
+      # - name: Build
+      #   run: cmake --build . --config ${{ env.config }} --target all --verbose
+      #   working-directory: ${{ env.build_dir }}
