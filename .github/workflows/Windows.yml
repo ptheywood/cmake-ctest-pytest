@@ -26,6 +26,7 @@ jobs:
         run: |
           python -m pip --version
           python -m venv -h
+          which python
 
       - name: Create a venv in the current dir
         shell: bash
