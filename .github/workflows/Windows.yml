@@ -31,18 +31,27 @@ jobs:
         shell: bash
         run: |
           python -m venv test_venv
+          ls test_venv
 
       - name: Create a venv in a child dir that does exist.
         shell: bash
         run: |
           mkdir -p subdirectory
           python -m venv subdirectory/test_venv
+          ls subdirectory/test_venv
 
       - name: Create a venv in a child dir that does not exist.
         shell: bash
         run: |
           python -m venv missing/test_venv
+          ls missing/test_venv
 
+      - name: Create duplicate?
+        shell: bash
+        run: |
+          python -m venv duplicate_venv
+          python -m venv duplicate_venv
+          ls duplicate_venv
 
       # - name: Configure CMake
       #   id: configure
