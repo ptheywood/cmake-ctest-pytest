@@ -21,49 +21,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Random testing.
-        shell: bash
+      - name: python --version.
         run: |
-          python -m pip --version
-          python -m venv -h
-          which python
+          python --version
+
+      - name: python3 --version.
+        run: |
+          python3 --version
+
+      # - name: python3 version.
+      #   run: |
+      #     python3 --version
 
       # ls -al C:/hostedtoolcache/windows/Python/3.9.1/x64/
 
-      
-      # - name: Create a venv in the current dir
-      #   shell: bash
-      #   run: |
-      #     python -m venv test_venv
-      #     ls test_venv
-
-      # - name: Create a venv in a child dir that does exist.
-      #   shell: bash
-      #   run: |
-      #     mkdir -p subdirectory
-      #     python -m venv subdirectory/test_venv
-      #     ls subdirectory/test_venv
-
-      # - name: Create a venv in a child dir that does not exist.
-      #   shell: bash
-      #   run: |
-      #     python -m venv missing/test_venv
-      #     ls missing/test_venv
-
-      # - name: Create duplicate?
-      #   shell: bash
-      #   run: |
-      #     python -m venv duplicate_venv
-      #     python -m venv duplicate_venv
-      #     ls duplicate_venv
-
-      # - name: Hardcoded
-      #   run: |
-      #     C:/hostedtoolcache/windows/Python/3.9.1/x64/python.exe -m venv hardcoded_py3
-      # - name: Hardcoded
-      #   run: |
-      #     C:/hostedtoolcache/windows/Python/3.9.1/x64/python3.exe -m venv hardcoded_py3
-          
 
       - name: Configure CMake
         id: configure
