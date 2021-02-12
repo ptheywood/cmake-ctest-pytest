@@ -66,9 +66,7 @@ jobs:
       - name: Configure CMake
         id: configure
         run: |
-          py3_exe=$(which python)
-          py3_root=$(dirname $(which python))
-          cmake . -B ${{ env.build_dir }} -G "${{ matrix.visual_studio }}" -A x64 -DPython3_ROOT_DIR=${py3_root} -DPython3_EXECUTABLE=${py3_exe}
+          cmake . -B ${{ env.build_dir }} -G "${{ matrix.visual_studio }}" -A x64 -DPython3_ROOT_DIR=$(dirname $(which python)) -DPython3_EXECUTABLE=$(which python)
         shell: bash
 
 
