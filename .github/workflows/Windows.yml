@@ -48,7 +48,7 @@ jobs:
 
       - name: create venv with python3
         run: |
-          python3 -m venv --symbolic py3-env 
+          python3 -m venv --symlinks py3-env 
           ls py3-env
 
       # - name: python3 version.
