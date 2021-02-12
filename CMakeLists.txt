@@ -21,7 +21,20 @@ message(STATUS "Python actually at " ${Python3_EXECUTABLE})
 
 # If os is windows, symlinked python.exe doesn't work for venv (without passing --symlinks). 
 # CMake doesn't correctly detect the github actions python3.exe to python.exe symlink.
+if(WIN32)
 
+    get_filename_component(Python3_name "${Python3_EXECUTABLE}"  NAME)
+    get_filename_component(Python3_directory "${Python3_EXECUTABLE}"  DIRECTORY)
+
+    message(STATUS "Python3_name ${Python3_name}")
+    message(STATUS "Python3_directory ${Python3_directory}")
+
+    if ("${Python3_name}" EQUAL "python3.exe")
+        message(STATUS "py3.exe on windows")
+    endif()
+
+
+endif()
 
 
 
