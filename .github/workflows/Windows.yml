@@ -57,6 +57,9 @@ jobs:
 
       # ls -al C:/hostedtoolcache/windows/Python/3.9.1/x64/
 
+      - name: Find all python3.exe
+        run: find /c/hostedtoolcache/windows/Python -type f -name "Python3.exe"
+        shell: bash
 
       - name: Configure CMake
         id: configure
