@@ -64,7 +64,7 @@ jobs:
       # On windows, use -DPython_Executable to try and get it to use python.exe not python3.exe
       - name: Configure CMake
         id: configure
-        run: cmake . -B ${{ env.build_dir }} -G "${{ matrix.visual_studio }}" -A x64 -DPython_Executable=$(which python)
+        run: cmake . -B ${{ env.build_dir }} -G "${{ matrix.visual_studio }}" -A x64 -DPython_Executable=C:/hostedtoolcache/windows/Python/3.9.1/x64/python.exe 
         shell: bash
 
 
