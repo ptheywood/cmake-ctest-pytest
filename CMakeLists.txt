@@ -30,7 +30,10 @@ if(WIN32)
     message(STATUS "Python3_directory ${Python3_directory}")
 
     if ("${Python3_name}" EQUAL "python3.exe")
-        message(STATUS "py3.exe on windows")
+        message(STATUS "python3.exe on windows?")
+        SET(new_Python3_EXECUTABLE "${Python3_directory}/python.exe")
+    else()
+        message(STATUS "not python3.exe on windows?")
     endif()
 
 
