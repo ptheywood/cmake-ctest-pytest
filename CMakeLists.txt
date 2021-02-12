@@ -12,6 +12,11 @@ message(STATUS "Python found at " ${Python3_EXECUTABLE})
 get_filename_component(Python3_EXECUTABLE "${Python3_EXECUTABLE}" REALPATH)
 message(STATUS "Python actually at " ${Python3_EXECUTABLE})
 
+file(READ_SYMLINK "${Python3_EXECUTABLE}" symlink_dest)
+message(STATUS "READ_SYMLINK : ${symlink_dest}") 
+
+file(REAL_PATH "${Python3_EXECUTABLE}" Python3_EXECUTABLE)
+message(STATUS "Python actually at " ${Python3_EXECUTABLE})
 
 message(STATUS "Executing python3 --version")
 execute_process(COMMAND ${Python3_EXECUTABLE} --version RESULT_VARIABLE ret)
@@ -25,8 +30,10 @@ if(ret EQUAL "1")
     message( FATAL_ERROR "Bad exit status")
 endif()
 
+
 message(STATUS "Createing a venv using ${Python3_EXECUTABLE}")
-execute_process(COMMAND ${Python3_EXECUTABLE} -m venv --symlinks env RESULT_VARIABLE ret)
+# execute_process(COMMAND ${Python3_EXECUTABLE} -m venv --symlinks env RESULT_VARIABLE ret)
+execute_process(COMMAND ${Python3_EXECUTABLE} -m venv env RESULT_VARIABLE ret)
 if(ret EQUAL "1")
     message( FATAL_ERROR "Bad exit status")
 endif()
