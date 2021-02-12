@@ -26,7 +26,7 @@ if(ret EQUAL "1")
 endif()
 
 message(STATUS "Createing a venv using ${Python3_EXECUTABLE}")
-execute_process(COMMAND ${Python3_EXECUTABLE} -m venv env RESULT_VARIABLE ret)
+execute_process(COMMAND ${Python3_EXECUTABLE} -m venv --symlinks env RESULT_VARIABLE ret)
 if(ret EQUAL "1")
     message( FATAL_ERROR "Bad exit status")
 endif()
